@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  dvdstore.api:
+    image: ${DOCKER_REGISTRY-}dvdstoreapi
+    build:
+      context: .
+      dockerfile: DVDStore.Api/Dockerfile
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
+     - ASPNETCORE_URLS=http://*:4900
+    ports:
+       - 4900:4900
+
